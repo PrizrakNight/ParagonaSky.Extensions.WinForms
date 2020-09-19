@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace ParagonaSky.Extensions.WinForms.Editor.Internal
@@ -45,7 +46,7 @@ namespace ParagonaSky.Extensions.WinForms.Editor.Internal
             for (int i = 0; i < objectGraph.Properties.Length; i++)
             {
                 var currentProperty = objectGraph.Properties[i];
-                var editorField = editorType.GetField(currentProperty.Attribute.ControlName);
+                var editorField = editorType.GetField(currentProperty.Attribute.ControlName, BindingFlags.NonPublic | BindingFlags.Instance);
 
                 if (editorField != default)
                     yield return new EditorBindedField(editorField, currentProperty);

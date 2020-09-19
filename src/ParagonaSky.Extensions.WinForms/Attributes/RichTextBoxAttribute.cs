@@ -5,7 +5,7 @@ namespace ParagonaSky.Extensions.WinForms.Editor
 {
     public class RichTextBoxAttribute : ControlPropertyAttribute
     {
-        protected override bool IsProperty => true;
+        internal override bool IsProperty => true;
 
         public RichTextBoxAttribute(string controlName, Type converterType = null) : base(controlName, converterType)
         {

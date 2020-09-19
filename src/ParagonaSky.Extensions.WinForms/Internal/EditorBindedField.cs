@@ -25,15 +25,17 @@ namespace ParagonaSky.Extensions.WinForms.Editor.Internal
             if (ObjectProperty.Attribute.ValueConverter != default)
                 objectValue = ObjectProperty.Attribute.ValueConverter.Convert(objectValue);
 
-            EditorField.SetValue(editor, objectValue);
+            ObjectProperty.Attribute.PropertyInfo.SetValue(EditorField.GetValue(editor), objectValue);
         }
 
         public void SetToObjectProperty(Form editor, object @object)
         {
+            var editorFieldValue = EditorField.GetValue(editor);
+
             object editorValue;
 
-            if (ObjectProperty.Attribute.IsProperty) editorValue = ObjectProperty.Attribute.PropertyInfo.GetValue(editor);
-            else editorValue = ObjectProperty.Attribute.FieldInfo.GetValue(editor);
+            if (ObjectProperty.Attribute.IsProperty) editorValue = ObjectProperty.Attribute.PropertyInfo.GetValue(editorFieldValue);
+            else editorValue = ObjectProperty.Attribute.FieldInfo.GetValue(editorFieldValue);
 
             if (ObjectProperty.Attribute.ValueConverter != default)
                 editorValue = ObjectProperty.Attribute.ValueConverter.ConvertBack(editorValue);

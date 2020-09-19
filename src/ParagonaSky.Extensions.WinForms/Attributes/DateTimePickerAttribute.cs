@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ParagonaSky.Extensions.WinForms.Editor.Attributes
+namespace ParagonaSky.Extensions.WinForms.Editor
 {
     public class DateTimePickerAttribute : ControlPropertyAttribute
     {
-        protected override bool IsProperty => true;
+        internal override bool IsProperty => true;
 
         public DateTimePickerAttribute(string controlName, Type converterType = null) : base(controlName, converterType)
         {

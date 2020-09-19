@@ -5,7 +5,7 @@ namespace ParagonaSky.Extensions.WinForms.Editor
 {
     public class NumericUpDownAttribute : ControlPropertyAttribute
     {
-        protected override bool IsProperty => true;
+        internal override bool IsProperty => true;
 
         public NumericUpDownAttribute(string controlName, Type converterType = null) : base(controlName, converterType)
         {
